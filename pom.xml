@@ -94,6 +94,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>CompraOQ</finalName>
 	</build>
-
 </project>
