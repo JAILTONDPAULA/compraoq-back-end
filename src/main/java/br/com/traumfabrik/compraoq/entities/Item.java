@@ -2,7 +2,7 @@ package br.com.traumfabrik.compraoq.entities;
 
 import java.io.Serializable;
 
-import br.com.traumfabrik.compraoq.dto.ListaDto;
+import br.com.traumfabrik.compraoq.dto.ItemDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,8 +18,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="lista",schema="compraoq")
-public class Lista implements Serializable{
+@Table(name="item",schema="compraoq")
+public class Item implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -27,10 +27,12 @@ public class Lista implements Serializable{
 	private Long    id;
 	private String  descricao;
 	private Integer local;
+	private Integer pendente;
 	
-	public Lista(ListaDto listaDto) {
-		this.descricao = listaDto.descricao();
-		this.local	   = listaDto.local();
+	public Item(ItemDto itemDto) {
+		this.descricao = itemDto.descricao();
+		this.local	   = itemDto.local();
+		this.pendente  = itemDto.pendente()!=null?itemDto.pendente():0;
 	}
 
 }
